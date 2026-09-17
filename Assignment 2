@@ -1,0 +1,11 @@
+x=int(input("Enter Number 1 "))
+y=int(input("Enter Number 2 "))
+z=int(input("Enter Number 3 "))
+
+if x>y and x>z:
+      print(x, "is the Largest Number.")
+elif y>x and y>z:
+      print(y, "is the Largest Number.")
+else:
+      print(z, "is the Largest Number.")
+    
