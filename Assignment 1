@@ -1,0 +1,37 @@
+# Student Data Management Using Python Collections
+
+# Dictionary containing student records
+students = {
+    101: ("Sarah", "CSE", 88),
+    102: ("Julia", "Psychology", 92),
+    103: ("Emily", "English", 86)
+}
+
+# List containing roll numbers
+rollnum = [101, 102, 103]
+
+# Display original student records
+print("Original Student Records:")
+for roll, details in students.items():
+    print(roll, details)
+
+# 1. Add a new student record
+students[104] = ("Taylor", "Mathematics", 90)
+rollnum.append(104)
+
+# 2. Delete an existing student record
+del students[102]
+rollnum.remove(102)
+
+# 3. Update the details of a student
+students[103] = ("Emily", "English", 98)
+
+# 4. Display final student records
+print("\nFinal Student Records:")
+
+for roll, details in students.items():
+    print("Roll Number:", roll)
+    print("Name:", details[0])
+    print("Branch:", details[1])
+    print("Marks:", details[2])
+    print()
