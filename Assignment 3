@@ -1,0 +1,14 @@
+#Write a python program that accepts the length of three sides of a triangle as inputs.
+
+x = int(input("Enter length of side 1 "))
+y = int(input("Enter length of side 2 "))
+z = int(input("Enter length of side 3 "))
+
+# Sort sides so the largest value is always last
+sides = sorted([x, y, z])
+
+# Check if a^2 + b^2 == c^2
+if sides[0]**2 + sides[1]**2 == sides[2]**2:
+    print("It is a Right-angled Triangle.")
+else:
+    print("It is not a Right-angled Triangle.")
