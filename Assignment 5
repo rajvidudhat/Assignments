@@ -1,0 +1,30 @@
+# PAN Number Validation Program
+
+def checkpan(pan):
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    digits = "0123456789"
+    valid = True
+
+    if len(pan) != 10:
+        valid = False
+    else:
+        for i in range(0, 5):
+            if pan[i] not in letters:
+                valid = False
+
+        for i in range(5, 9):
+            if pan[i] not in digits:
+                valid = False
+
+        if pan[9] not in letters:
+            valid = False
+
+    if valid == True:
+        print("Valid PAN Number")
+    else:
+        print("Invalid PAN Number")
+
+
+# Main Program
+pannumber = input("Enter PAN Number: ")
+checkpan(pannumber)
