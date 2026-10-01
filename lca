@@ -1,0 +1,75 @@
+# Attendance Eligibiltiy Analyzer
+Subjects = {
+    "Maths": 85,
+    "Physics": 85,
+    "Chemistry": 85,
+    "Python Programming": 80,
+}
+
+# Student attendance data in dictionaries
+students = {
+    "Rajvi Dudhat": {
+        "Maths": [90, 100],
+        "Physics": [85, 100],
+        "Chemistry": [79, 100],
+        "Python Programming": [96, 100],
+    },
+    "Swanandi Mahajan": {
+        "Maths": [89, 100],
+        "Physics": [78, 100],
+        "Chemistry": [90, 100],
+        "Python Programming": [89, 100],
+    },
+}
+
+# Function to calculate attendance percentage
+def percentage(attended, total):
+  return (attended/total)*100
+
+
+# Function returning the list of failed subjects
+def eligibility(eligibilitycriteria):
+  failed = []
+
+  for subject, attendancelist in eligibilitycriteria.items():
+    attended=attendancelist[0]
+    total=attendancelist[1]
+
+    percent=percentage(attended, total)
+    reqpercent=Subjects[subject]
+
+    if percent< reqpercent:
+      failed.append(subject)
+
+  return failed
+
+
+# Function to print reports using loops
+def showreport(students):
+  for name, subjects in students.items():
+    print()
+    print(name)
+
+    for subject, attendancelist in subjects.items():
+      attended=attendancelist[0]
+      total=attendancelist[1]
+
+      percent=percentage(attended, total)
+
+      if percent >= Subjects[subject]:
+        status= "ELIGIBLE"
+      else:
+        status= "INELIGIBLE"
+
+      print("  " + subject + ": " + str(round(percent, 2)) + "% - " + status)
+
+    failed_subjects= eligibility(subjects)
+
+    if len(failed_subjects) == 0:
+      print("EXAMINATION STATUS: ELIGIBLE")
+    else:
+      failed_str= ", ".join(failed_subjects)
+      
+      print("EXAMINATION STATUS: INELIGIBLE (Failed: " + failed_str + ")")
+
+showreport(students)
