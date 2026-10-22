@@ -1,0 +1,25 @@
+data = {
+    "Student": ["Sarah", "Charlie", "Julia", "Robert", "Isha", "Haley"],
+    "Maths": [75, 82, 68, 90, 72, 85],
+    "Python": [80, 78, 70, 92, 75, 88],
+    "Attendance": [85, 90, 78, 95, 80, 92],
+    "City": ["USA", "Mumbai", "Canada", "Australia", "Mumbai", "London"]
+}
+
+df = pd.DataFrame(data)
+df.to_csv("sample_data_assignment_07.csv", index=False)
+
+print("CSV file created!")
+
+df = pd.read_csv("sample_data_assignment_07.csv")
+print(df)
+
+import matplotlib.pyplot as plt
+
+plt.plot(df["Student"], df["Python"], marker="o")
+plt.title("Python Marks of Students")
+plt.xlabel("Student")
+plt.ylabel("Python Marks")
+plt.grid(True)
+plt.show()
+
