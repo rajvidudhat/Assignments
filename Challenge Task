@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+filename = input("Enter CSV filename: ")
+df = pd.read_csv(filename)
+
+# Histogram of Python marks
+plt.hist(df["Python"], label="Python Marks")
+plt.title("Histogram of Python Marks")
+plt.xlabel("Python Marks")
+plt.ylabel("Frequency")
+plt.legend()
+plt.show()
+
+# Box plot of Maths and Python marks
+df[["Maths", "Python"]].plot(kind="box")
+plt.title("Maths and Python Marks")
+plt.ylabel("Marks")
+plt.show()
+
+# Pie chart of students from each city
+df["City"].value_counts().plot(
+    kind="pie", autopct="%1.1f%%", legend=True
+)
+plt.title("Students from Each City")
+plt.ylabel("")
+plt.show()
+
+# Calculate averages
+print("Average Maths Marks:", df["Maths"].mean())
+print("Average Python Marks:", df["Python"].mean())
+print("Average Attendance:", df["Attendance"].mean())
