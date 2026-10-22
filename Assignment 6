@@ -1,0 +1,21 @@
+import pandas as pd
+
+data = {
+    "Name": ["Sarah", "Julia", "Emily", "Sarah"],
+    "Marks": [92, 88, 96, 85],
+    "City": ["Pune", "Mumbai", "Rajkot", "Pune"]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Data:")
+print(df)
+
+print("\nStudent Names:")
+print(df["Name"])
+
+print("\nStudents scoring 90 or above:")
+print(df.loc[df["Marks"] >= 90])
+
+print("\nDuplicate Records:")
+print(df[df.duplicated()])
